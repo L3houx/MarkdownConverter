@@ -106,6 +106,11 @@ export interface ISettings
     ["Document.Paper.Margin"]?: Partial<Record<keyof Margin, string>>;
 
     /**
+     * The option while generating a report.
+     */
+    ["Document.GenerateReport"]?: Record<string, string | boolean>;
+
+    /**
      * A value indicating whether headers and footers are enabled.
      */
     ["Document.HeaderFooterEnabled"]?: boolean;

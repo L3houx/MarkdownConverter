@@ -242,11 +242,15 @@ export class Converter
                     {
                         try
                         {
+                            console.log("this: ", this);
                             let content = await this.Document.Render();
 
-                            for (let header of headers)
+                            if (headers.length >= 2)
                             {
-                                response.setHeader(header[0], header[1]);
+                                for (let header of headers)
+                                {
+                                    response.setHeader(header[0], header[1]);
+                                }
                             }
 
                             response.writeHead(200);
@@ -257,6 +261,7 @@ export class Converter
                             let errorDocument = new Document(new MarkdownIt());
                             errorDocument.StyleSheets.push(new StyleSheet(Resources.Files.Get("SystemStyle"), InsertionType.Include));
 
+                            console.error(exception);
                             errorDocument.Content = dedent(
                                 `
                                     # An Error Occurred While Converting the Document

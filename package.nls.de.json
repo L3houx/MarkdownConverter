@@ -78,6 +78,8 @@
     "Config.Document.FooterContent.Description": "Der Inhalt der verschiedenen Teile der Fußzeile.",
     "Config.Document.FooterTemplate": "Fußzeile",
     "Config.Document.FooterTemplate.Description": "Die Inhalt der Fußzeile oder der Pfad zur Fußzeilen-Vorlage.",
+    "Config.Document.GenerateReport": "TODO",
+    "Config.Document.GenerateReport.Description": "TODO",
     "Config.Template": "Vorlage",
     "Config.Template.Description": "Der Pfad zur Vorlage des Dokuments.\n\n***Note:***  \n  - `{{{ meta }}}` wird durch die Meta-Daten des Dokuments ersetzt.\n  - `{{{ styles }}}` wird durch die CSS-Styles ersetzt.\n  - `{{{ content }}}` wird durch den Inhalt des Dokuments ersetzt.\n  - `{{{ scripts }}}` wird durch JavaScript-Dateien ersetzt.",
     "Config.DefaultStyles": "Standard Styles",
