@@ -18,6 +18,7 @@ import { ChainTask } from "./System/Tasks/ChainTask";
 import { ChromiumNotFoundException } from "./System/Tasks/ChromiumNotFoundException";
 import { ConvertAllTask } from "./System/Tasks/ConvertAllTask";
 import { ConvertTask } from "./System/Tasks/ConvertTask";
+import { GenerateReportTask } from "./System/Tasks/GenerateReportTask";
 import { IProgressState } from "./System/Tasks/IProgressState";
 import { PuppeteerTask } from "./System/Tasks/PuppeteerTask";
 
@@ -103,7 +104,8 @@ export class MarkdownConverterExtension extends Extension
         this.Context.subscriptions.push(
             commands.registerCommand("markdownConverter.Convert", async () => this.ExecuteTask(new ConvertTask(this))),
             commands.registerCommand("markdownConverter.ConvertAll", async () => this.ExecuteTask(new ConvertAllTask(this))),
-            commands.registerCommand("markdownConverter.Chain", async () => this.ExecuteTask(new ChainTask(this))));
+            commands.registerCommand("markdownConverter.Chain", async () => this.ExecuteTask(new ChainTask(this))),
+            commands.registerCommand("markdownConverter.GenerateReport", async () => this.ExecuteTask(new GenerateReportTask(this))));
 
         return super.Activate();
     }

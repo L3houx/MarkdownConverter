@@ -92,6 +92,8 @@
     "Config.Document.DefaultStyles.Description": "Ermöglicht die Deaktivierung der Standard-Styles.",
     "Config.Document.HighlightStyle": "highlight.js-Style",
     "Config.Document.HighlightStyle.Description": "Der zu nutzende highlight.js-style.",
+    "Config.Document.GenerateReport": "TODO",
+    "Config.Document.GenerateReport.Description": "TODO",
     "Config.Assets.AssetPathType.Link": "Dateien, die als Link angegeben wurden.",
     "Config.Assets.AssetPathType.RelativePath": "Dateien, die als relativer Pfad angegeben wurden.",
     "Config.Assets.AssetPathType.AbsolutePath": "Dateien, die als absoluter Pfad angegeben wurden.",

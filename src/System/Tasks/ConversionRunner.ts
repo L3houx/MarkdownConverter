@@ -138,6 +138,7 @@ export class ConversionRunner
             }
 
             converter = await this.LoadConverter(workspaceFolder, document);
+
             await converter.Initialize(progressReporter);
 
             for (let type of Settings.Default.ConversionType)
@@ -268,7 +269,31 @@ export class ConversionRunner
 
         converter.Document.Paper = Settings.Default.PaperFormat;
         converter.Document.Meta.Content = await this.LoadFragment(converter, metaTemplate) ?? converter.Document.Meta.Content;
-        converter.Document.HeaderFooterEnabled = Settings.Default.HeaderFooterEnabled;
+
+        // GenerateReportTask
+        if (document.fileName.includes(Settings.Default.GenerateReportTitlePage))
+        {
+            // Disable Header dans Footer
+            converter.Document.HeaderFooterEnabled = Settings.Default.GenerateReportTitlePageHeaderFooter;
+
+            // Remove Margin for Title Page if HeaderFooterEnabled is false
+            if(!converter.Document.HeaderFooterEnabled)
+            {
+                converter.Document.Paper.Margin.Top = "0cm";
+                converter.Document.Paper.Margin.Bottom = "0cm";
+                converter.Document.Paper.Margin.Left = "0cm";
+                converter.Document.Paper.Margin.Right = "0cm";
+            }
+        }
+        else if(document.fileName.includes(Settings.Default.GenerateReportReport))
+        {
+            converter.Document.HeaderFooterEnabled = Settings.Default.GenerateReportReportHeaderFooter;
+        }
+        else
+        {
+            converter.Document.HeaderFooterEnabled = Settings.Default.HeaderFooterEnabled;
+        }
+
         converter.Document.Header.Content = await this.LoadFragment(converter, headerTemplate) ?? converter.Document.Header.Content;
         converter.Document.Footer.Content = await this.LoadFragment(converter, footerTemplate) ?? converter.Document.Footer.Content;
 
@@ -437,11 +462,11 @@ export class ConversionRunner
         {
             parser = new MarkdownIt({
                 html: true,
-                highlight: (subject, language) =>
+                highlight: (subject, lang) =>
                 {
                     if (Settings.Default.HighlightStyle !== "None")
                     {
-                        subject = hljs.highlight(subject, { language: "markdown", ignoreIllegals: true }).value;
+                        subject = hljs.highlight(subject, { language: lang, ignoreIllegals: true }).value;
                     }
                     else
                     {

@@ -44,7 +44,8 @@
     "TaskTitle": {
         "Convert": "Convert Document",
         "ConvertAll": "Convert all Documents",
-        "Chain": "Chain all Documents"
+        "Chain": "Chain all Documents",
+        "GenerateReport": "Generate Report"
     },
     "DateTime": {
         "Era": {

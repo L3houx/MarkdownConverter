@@ -218,6 +218,38 @@ export class Settings
     }
 
     /**
+     * Get the filename of the title page.
+     */
+    public get GenerateReportTitlePage(): string
+    {
+        return this.GetConfigEntry("Document.GenerateReport.TitlePage");
+    }
+
+    /**
+     * Get the option of including header and footer in the title page section.
+     */
+    public get GenerateReportTitlePageHeaderFooter(): boolean
+    {
+        return this.GetConfigEntry("Document.GenerateReport.TitlePageHeaderFooter");
+    }
+
+    /**
+     * Get the filename of the report.
+     */
+    public get GenerateReportReport(): string
+    {
+        return this.GetConfigEntry("Document.GenerateReport.Report");
+    }
+
+    /**
+     * Get the option of including header and footer in the report section.
+     */
+    public get GenerateReportReportHeaderFooter(): boolean
+    {
+        return this.GetConfigEntry("Document.GenerateReport.ReportHeaderFooter");
+    }
+
+    /**
      * Gets a value indicating whether headers and footers are enabled.
      */
     public get HeaderFooterEnabled(): boolean
